@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection-page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Selection.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div id="container1">
+            <div id="hlogo">
+                <span id="hlogo-text">Smart Hire</span>
+            </div>
+
+            <div id="hlinks">
+                <a class="hancrs" href="{{ url_for('home') }}">About</a>
+                <a class="hancrs" href="{{ url_for('home') }}">Project</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="container2">
+            <div id="mb1">
+                <div id="inputheading">
+                    <span id="inputheading-text">AI Resume Shortlister</span>
+                    <br><br>
+                    <span id="shortpara">AI-Driven Resume Shortlisting for Smarter Hiring</span>
+                    <br><br>
+                    <img id="inpuimg" src="https://viterbicareers.usc.edu/wp-content/uploads/2020/04/Cartoon-employer-reviewing-a-resume.png">
+                </div>
+
+                <div id="inputbox">
+                    <span id="inputbox-heading">File Upload</span>
+
+                    <form id="mainform" action="{{ url_for('selection') }}" method="POST" enctype="multipart/form-data">
+                        <label for="fileupload" class="c-f-u">Upload File</label>
+                        <input type="file" id="fileupload" name="file" required>
+                        <textarea id="job_desc" name="job_desc" rows="4" placeholder="Enter the job description here..."></textarea>
+                        
+                        <button id="submit" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="mb2">
+                {% if result %}
+                    <h2>Selection Results</h2>
+                    <br>
+                    <p><strong>Selection Status:</strong> {{ result["Selection Status"] }}</p>
+                    <p><strong>Matched Keywords:</strong> {{ result["Matched Keywords"] | join(", ") }}</p>
+                    <p><strong>ATS Compliance:</strong> {{ result["ATS Compliance"] }}</p>
+                    <p><strong>Job Match Score:</strong> {{ result["Job Match Score (%)"] }}%</p>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="aboutMember">
+            <div id="footer-icon" class="icons">
+                <a href="#" class="footerico"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="footerico"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="footerico"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="member">
+                <p><strong>Member:</strong> Akshad Aloni, Sarang Khandate, Shantanu Bawne, Vivek Dhumankhede</p>
+            </div>
+            <div class="college">
+                <p><strong>College:</strong> Suryodaya College of Engineering & Technology</p>
+            </div>
+            <div class="year">
+                <p><strong>Year:</strong> 2nd</p>
+            </div>
+            <div class="department">
+                <p><strong>Department:</strong> CSE [Data Science]</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to JavaScript file -->
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+</body>
+</html>

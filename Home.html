@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Home.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div id="container1">
+            <div id="hlogo">
+                <span id="hlogo-text">Smart Hire</span>
+            </div>
+            <div id="hlinks">
+                <a class="hancrs" href="#shotAncr">About</a>
+                <a class="hancrs" href="#sec3">Project</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="container2">
+            <div id="sec1">
+                <div id="resumeHeading">
+                    <h1 id="mheading-text">Is Your <span id="mheading-text-hl">Resume</span> a Perfect Match for the Job? Find Out Now!</h1>
+                    <p id="mparagraph-text">Not sure if your <span id="mparagraph-text-hl">Resume</span> is strong enough for the job? Our AI-powered Resume Shortlister evaluates it, provides a score, and offers insights to improve it.</p>
+                    <a id="shotAncr" href="{{ url_for('selection') }}">Shortlist</a>
+                </div>
+                <div id="resume">
+                    <img id="mresume-img" src="{{ url_for('static', filename='dxf91zhqd2z6b0bwg85ktm5s4.svg') }}">
+                </div>
+            </div>
+
+            <section id="sec2">
+                <h2>About <span id="alogo">Smart Hire</span></h2>
+                <br>
+                <p class="aboutPara">Smart Hire is an innovative AI-powered resume analysis and job matching system designed to enhance the hiring process for both candidates and recruiters. Leveraging cutting-edge Natural Language Processing (NLP) and Machine Learning (ML), Smart Hire evaluates resumes based on key industry-relevant skills, ATS (Applicant Tracking System) compliance, and job role alignment.
+                    <br><br>
+                    This intelligent system extracts and analyzes text from various file formats, including PDF, DOCX, and images, ensuring that resumes are properly formatted and contain essential keywords. It also identifies hyperlinks to LinkedIn and GitHub profiles, helping recruiters gain a comprehensive view of a candidate’s professional background.</p>
+            </section>
+
+            <section id="sec3">
+                <h2>Project</h2>
+                <br>
+                <p class="aboutPara">The Smart Hire project aims to revolutionize the recruitment process by leveraging Artificial Intelligence (AI) and Machine Learning (ML) to analyze resumes and match candidates with job roles effectively. This system automates resume screening, ensuring that candidates meet the necessary qualifications before reaching recruiters.
+                    <br><br>
+                    The project involves text extraction from resumes in various formats (PDF, DOCX, and images) using OCR (Optical Character Recognition) for image-based resumes. It then processes and cleans the extracted data, identifying key skills, ATS compliance, and relevant experience. Smart Hire also integrates TF-IDF vectorization and cosine similarity techniques to assess the compatibility between resumes and job descriptions, providing a Job Role Match Score to quantify candidate suitability.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div id="aboutMember">
+            <div id="footer-icon">
+                <a href="#" class="footerico"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="footerico"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="footerico"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <p><strong>Member:</strong> Akshad Aloni, Sarang Khandate, Shantanu Bawne, Vivek Dhumankhede</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+#container1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+#hlinks{
+    width: 15%;
+}
+
+#hlinks a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+#container2{
+    margin-top: 80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sec1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px
+}
+
+#sec3,#sec2{
+    margin-top: 100px;
+    width: 70%;
+}
+
+.aboutPara{
+    font-size: 1.1em;
+}
+
+#resumeHeading {
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+#mresume-img {
+    width: 100%;
+    max-width: 400px;
+}
+
+#shotAncr{
+    display: inline-block;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    height: 50px;
+    width: 150px;
+    font-size: 1.5em;
+    font-weight: 600;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+footer{
+    margin-top: 50px;
+    text-align: center;
+}
+
+#footer-icon a{
+    margin: 0 10px;
+    color: black;
+    font-size: 1.5em;
+}
+
+@media (max-width: 768px) {
+    #container1 {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    #hlinks {
+        margin-top: 10px;
+    }
+}
+</style>
